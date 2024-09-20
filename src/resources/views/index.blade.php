@@ -25,11 +25,13 @@
         @foreach ($todos as $todo)
         <li class="todo-list__item">
           <form id="form-update-{{ $todo->id }}" class="todo-list__form-update" action="{{ route('update', $todo->id) }}" method="post">
+            @method('patch')
             @csrf
             <input type="text" name="content" value="{{ $todo->content }}" placeholder="{{ $todo->content }}">
             <button class="todo-list__btn-update c-btn c-btn--update" type="button" onclick="confirmUpdate('{{ $todo->id }}', '{{ $todo->content }}')">更新</button>
           </form>
           <form id="form-delete-{{ $todo->id }}" class="todo-list__form-delete action=" action="{{ route('delete', $todo->id) }}" method="post">
+            @method('delete')
             @csrf
             <button class="todo-list__btn-delete c-btn c-btn--delete" type="button" onclick="confirmDelete('{{ $todo->id }}', '{{ $todo->content }}')">削除</button>
           </form>

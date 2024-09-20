@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TodoController::class, 'index'])->name('index');
 Route::post('/store', [TodoController::class, 'store'])->name('store');
-Route::post('/update/{id}', [TodoController::class, 'update'])->name('update');
-Route::post('/delete/{id}', [TodoController::class, 'delete'])->name('delete');
+Route::patch('/update/{id}', [TodoController::class, 'update'])->name('update');
+Route::delete('/delete/{id}', [TodoController::class, 'destroy'])->name('delete');
