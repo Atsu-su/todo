@@ -24,14 +24,14 @@
       <ul class="todo-list__table">
         @foreach ($todos as $todo)
         <li class="todo-list__item">
-          <form class="todo-list__form-update" action="{{ route('update', $todo->id) }}" method="post">
+          <form id="form-update-{{ $todo->id }}" class="todo-list__form-update" action="{{ route('update', $todo->id) }}" method="post">
             @csrf
-            <input type="text" name="content" value="{{ $todo->content }}">
-            <button class="todo-list__btn-update c-btn c-btn--update" type="submit">更新</button>
+            <input type="text" name="content" value="{{ $todo->content }}" placeholder="{{ $todo->content }}">
+            <button class="todo-list__btn-update c-btn c-btn--update" type="button" onclick="confirmUpdate('{{ $todo->id }}', '{{ $todo->content }}')">更新</button>
           </form>
-          <form class="todo-list__form-delete action=" action="{{ route('delete', $todo->id) }}" method="post">
+          <form id="form-delete-{{ $todo->id }}" class="todo-list__form-delete action=" action="{{ route('delete', $todo->id) }}" method="post">
             @csrf
-            <button class="todo-list__btn-delete c-btn c-btn--delete" type="submit">削除</button>
+            <button class="todo-list__btn-delete c-btn c-btn--delete" type="button" onclick="confirmDelete('{{ $todo->id }}', '{{ $todo->content }}')">削除</button>
           </form>
         </li>
         @endforeach
