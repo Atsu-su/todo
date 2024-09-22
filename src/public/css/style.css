@@ -90,7 +90,7 @@ body {
     font-weight: bold;
 }
 
-/* インデックス（index.php） */
+/* インデックス（index.blade.php） */
 .success-msg {
     padding-left: 20px;
     background-color: var(--color-msg-success-bg);
@@ -171,5 +171,73 @@ body {
 }
 
 .todo-list__btn-delete {
+    margin-left: 10px;
+}
+
+/* カテゴリーインデックス（category_index.blade.php） */
+.category-create {
+    margin-top: 50px;
+}
+
+.category-create__form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-create__input {
+    width: 65%;
+    height: 54px;
+    font-size: 20px;
+    text-indent: 10px;
+    border: 2px solid var(--color-border-gray);
+    border-radius: 5px;
+}
+
+.category-list {
+    margin-top: 30px;
+}
+
+.category-list__title {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.category-list__table {
+    margin-top: 30px;
+    border-top: solid 1px var(--color-border-gray);
+    border-bottom: solid 1px var(--color-border-gray);
+}
+
+.category-list__item {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.category-list__item:not(:first-child) {
+    border-top: solid 1px var(--color-border-gray);
+}
+
+.category-list__form-update {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-list__form-update input {
+    margin-left: 10px;
+    padding-left: 10px;
+    width: 70%;
+    height: 40px;
+    font-size: 20px;
+    border: none;
+}
+
+.category-list__btn {
+    margin: 0 20px 0 auto;
+}
+
+.category-list__btn-delete {
     margin-left: 10px;
 }

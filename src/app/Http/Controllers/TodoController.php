@@ -17,9 +17,10 @@ class TodoController extends Controller
 
     public function store(TodoFormRequest $request)
     {
-
         try {
             Todo::create([
+                // 'category_id' => $request->input('category_id'),
+                'category_id' => 1,
                 'content' => $request->input('content'),
             ]);
 

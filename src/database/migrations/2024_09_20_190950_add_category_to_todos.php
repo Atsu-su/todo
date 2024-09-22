@@ -14,7 +14,8 @@ class AddCategoryToTodos extends Migration
     public function up()
     {
         Schema::table('todos', function (Blueprint $table) {
-            $table->string('category_id')->after('id');
+            $table->unsignedBigInteger('category_id')->after('id');
+
             $table->foreign('category_id')->references('id')->on('categories');
         });
     }
