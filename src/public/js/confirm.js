@@ -1,6 +1,6 @@
 "use strict"
 
-function confirmDelete(id, todo) {
+function confirmDelete(id, value) {
     if (confirm(`「 ${value} 」を削除しますか？`)) {
         document.getElementById(`form-delete-${id}`).submit();
     } else {

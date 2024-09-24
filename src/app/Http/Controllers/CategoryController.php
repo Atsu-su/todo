@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Http\Requests\CategoryFormRequest;
+use Exception;
 
 class CategoryController extends Controller
 {
@@ -16,17 +17,16 @@ class CategoryController extends Controller
 
     public function store(CategoryFormRequest $request)
     {
-
         try {
             Category::create([
                 'name' => $request->input('name'),
             ]);
 
             return redirect()->route('category-index')
-                ->with('success_msg', 'カテゴリーを登録しました');
+                ->with('success_msg', 'カテゴリを登録しました');
         } catch (Exception $e) {
             return redirect()->route('category-index')
-                ->withErrors('カテゴリーの登録に失敗しました');
+                ->withErrors('カテゴリの登録に失敗しました');
         }
     }
 
@@ -38,10 +38,10 @@ class CategoryController extends Controller
             ]);
 
             return redirect()->route('category-index')
-                ->with('success_msg', 'カテゴリー名を更新しました');
+                ->with('success_msg', 'カテゴリ名を更新しました');
         } catch (Exception $e) {
             return redirect()->route('category-index')
-                ->withErrors('カテゴリー名の更新に失敗しました');
+                ->withErrors('カテゴリ名の更新に失敗しました');
         }
     }
 

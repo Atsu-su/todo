@@ -3,24 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TodoFormRequest;
+use App\Models\Category;
 use App\Models\Todo;
 use Exception;
+use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
     public function index()
     {
-        $todos = Todo::all();
+        $categories = Category::all();
+        $todos = Todo::with('category')->get();
 
-        return view('index', compact('todos'));
+        return view('index', compact('todos', 'categories'));
     }
 
     public function store(TodoFormRequest $request)
     {
         try {
             Todo::create([
-                // 'category_id' => $request->input('category_id'),
-                'category_id' => 1,
+                'category_id' => $request->input('category_id'),
                 'content' => $request->input('content'),
             ]);
 
@@ -36,6 +38,7 @@ class TodoController extends Controller
     {
         try {
             Todo::where('id', $id)->update([
+                'category_id' => $request->input('category_id'),
                 'content' => $request->input('content'),
             ]);
 
@@ -52,5 +55,24 @@ class TodoController extends Controller
         Todo::where('id', $id)->delete();
 
         return redirect()->route('index');
+    }
+
+    public function search(Request $request)
+    {
+        $categoryId = e($request->input('category_id'));
+        $content = e($request->input('content'));
+
+        $categories = Category::all();
+
+        $query = Todo::with('category');
+        if (! empty($categoryId)) {
+            $query->where('category_id', $categoryId);
+        }
+        if (! empty($content)) {
+            $query->where('content', 'like', "%$content%");
+        }
+        $todos = $query->get();
+
+        return view('index', compact('todos', 'categories', 'content', 'categoryId'));
     }
 }

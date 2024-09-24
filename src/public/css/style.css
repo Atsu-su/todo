@@ -107,17 +107,25 @@ body {
     border: 2px solid var(--color-border-light-pink);
 }
 
-.todo-create {
+.todo-top:first-of-type {
     margin-top: 50px;
 }
 
-.todo-create__form {
-    display: flex;
-    justify-content: space-between;
+.todo-top:nth-of-type(2) {
+    margin-top: 20px;
 }
 
-.todo-create__input {
-    width: 65%;
+.todo-top__form {
+    display: flex;
+    gap: 10px;
+}
+
+.todo-top__form button {
+    margin: 0 0 0 auto;
+}
+
+.todo-top__input {
+    width: 40%;
     height: 54px;
     font-size: 20px;
     text-indent: 10px;
@@ -125,56 +133,94 @@ body {
     border-radius: 5px;
 }
 
-.todo-list {
-    margin-top: 30px;
+.todo-top__select {
+    width: 20%;
+    height: 54px;
+    font-size: 20px;
+    text-indent: 10px;
+    border: 2px solid var(--color-border-gray);
+    border-radius: 5px;
 }
 
-.todo-list__title {
-    font-size: 30px;
-    font-weight: bold;
-    line-height: 1;
-}
-
-.todo-list__table {
+.todo-table {
     margin-top: 30px;
-    border-top: solid 1px var(--color-border-gray);
+    margin-bottom: 50px;
+    width: 100%;
     border-bottom: solid 1px var(--color-border-gray);
 }
 
-.todo-list__item {
+.todo-table__title {
+    padding-bottom: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: left;
+}
+
+.todo-table__title span {
+    width: 40%;
+    display: inline-block;
+}
+
+.todo-table__title span:first-child {
+    margin-left: 10px;
+}
+
+.todo-table__row {
+    margin-top: 30px;
+    border-top: solid 1px var(--color-border-gray);
+}
+
+.todo-table__item {
     height: 80px;
+}
+
+/* 修正予定 borderはここではなくtrにつける */
+/* .todo-table__item:not(:first-child) {
+    border-top: solid 1px var(--color-border-gray);
+} */
+
+.todo-table__form-update {
+    width: 100%;
     display: flex;
     align-items: center;
 }
 
-.todo-list__item:not(:first-child) {
-    border-top: solid 1px var(--color-border-gray);
-}
-
-.todo-list__form-update {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.todo-list__form-update input {
+.todo-table__form-update input {
     margin-left: 10px;
     padding-left: 10px;
-    width: 70%;
+    width: 40%;
     height: 40px;
     font-size: 20px;
     border: none;
 }
 
-.todo-list__btn {
-    margin: 0 20px 0 auto;
+.todo-table__select {
+    margin-left: 10px;
+    width: 30%;
+    height: 54px;
+    font-size: 20px;
+    text-indent: 10px;
+    border: 2px solid var(--color-border-gray);
+    border-radius: 5px;
 }
 
-.todo-list__btn-delete {
+/* .todo-table__form-update p {
+    margin-left: 10px;
+    width: 40%;
+    display: grid;
+    align-content: center;
+} */
+
+.todo-table__btn-update {
+    margin-left: auto;
+}
+
+.todo-table__btn-delete {
     margin-left: 10px;
 }
 
-/* カテゴリーインデックス（category_index.blade.php） */
+/* カテゴリインデックス（category_index.blade.php） */
 .category-create {
     margin-top: 50px;
 }
