@@ -2,7 +2,7 @@
 @section('content')
 <main>
   @if (session('success_msg'))
-  <div class="success-msg">
+  <div class="success-msg">us
     <p>{{ session('success_msg') }}</p>
   </div>
   @endif
@@ -11,6 +11,7 @@
     <p>{{ $errors->first() }}</p>
   </div>
   @endif
+
   <div class="l-container">
     <div class="todo-top">
       <h2 class="todo-top__title">新規作成</h2>
@@ -78,7 +79,8 @@
         </tr>
         @endforeach
       </tbody>
-    </div>
+    </table>
+    {{ $todos->links('vendor.pagination.custom-pagination') }}
   </div>
 </main>
 @endsection

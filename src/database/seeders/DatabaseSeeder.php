@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             Category::create(['name' => 'Personal']);
             Category::create(['name' => 'Misc']);
         }
-        if (! Todo::exists()) Todo::factory(10)->create();
+        // if (! Todo::exists()) Todo::factory(10)->create();
+        Todo::factory(30)->create();
     }
 }
